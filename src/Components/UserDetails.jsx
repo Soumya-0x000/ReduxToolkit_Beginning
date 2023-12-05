@@ -1,16 +1,23 @@
 import React from 'react'
 import DeleteAllUsers from './DeleteAllUsers'
 import { fakeUserData } from '../api'
+import { useDispatch } from'react-redux'
+import { addUser } from '../store/Slices/UserSlice'
+import DisplayUsers from './DisplayUsers'
 
 const UserDetails = () => {
+    const dispatch = useDispatch();
+
     const addNewUser = (payLoad) => {
-        console.log(payLoad);
+        dispatch(addUser(payLoad))
     }
 
     return (
-        <div className='flex flex-col gap-y-2 items-center justify-center mt-16'>
+        <div className='flex flex-col gap-y-3 items-center justify-center mt-16'>
             <div className='flex flex-col xsm:flex-row items-center justify-between px-3 sm:px-0 w-full sm:w-[92vw] lg:w-[70vw]'>
-                <div className='text-slate-300 text-[.97rem] sm:text-lg lg:text-2xl'>List of User details</div>
+                <div className='text-slate-300 text-[.97rem] sm:text-lg lg:text-2xl'>
+                    List of User details
+                </div>
 
                 <button 
                 onClick={() => addNewUser(fakeUserData())}
@@ -19,13 +26,10 @@ const UserDetails = () => {
                 </button>
             </div>
            
-            <hr />
+            {/*  */}
             
-            <ul>
-                {/* <li>Hey</li>
-                <li>Hii</li>
-                <li>Hello</li>
-                <li>What's Up</li> */}
+            <ul className='overflow-y-auto max-h-[55vh] px-3 sm:px-0 w-full min-w-[12rem] sm:w-[92vw] lg:w-[70vw] text-[.97rem] sm:text-lg mb-2'>
+                <DisplayUsers/>
             </ul>
             
             <DeleteAllUsers/>
