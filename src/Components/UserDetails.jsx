@@ -25,10 +25,8 @@ const UserDetails = () => {
                     Add new users
                 </button>
             </div>
-           
-            {/*  */}
             
-            <ul className='overflow-y-auto max-h-[55vh] px-3 sm:px-0 w-full min-w-[12rem] sm:w-[92vw] lg:w-[70vw] text-[.97rem] sm:text-lg mb-2'>
+            <ul className='overflow-y-auto max-h-[55vh] px-3 sm:px-0 w-full min-w-[12rem] sm:w-[92vw] lg:w-[70vw] text-[.97rem] sm:text-lg mb-2 border-b-[.1rem] border-green-300'>
                 <DisplayUsers/>
             </ul>
             
